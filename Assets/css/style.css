@@ -1,0 +1,28 @@
+.jumbotron {
+    background-image: url(../images/arttrain.png);
+    background-image: cover, no-repeat;
+    text-align: center;
+    border-radius: 2%;
+    color: rgb(7, 160, 58);
+}
+.container {
+    width: 90%;
+}
+.table {
+    margin-left: 10px;
+    background-color: tan;
+}
+.form-group {
+    margin-left: 10px;
+    background-color: tan;
+}
+body {
+    background-color: beige;
+    padding-bottom: 100px;
+}
+h5 {
+    background-color: blue;
+    margin-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
