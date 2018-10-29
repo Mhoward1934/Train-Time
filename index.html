@@ -24,7 +24,11 @@
     </div>
     <br>
         <table class="table table-striped">
-            <h5>Current Train Schedule</h5>
+            <thead>
+                <tr>
+                    <th>Current Train Schedule</th>
+                </tr>
+            </thead>
             <thead>
                 <tr>
                     <th scope="col">Train Name</th>
@@ -53,7 +57,9 @@
         </table>
         <br> 
         <form>
-            <h5>Add Train</h5>
+                <div class="form-group">
+                    <label for="addTrain"><strong>Add Train</strong></label>
+                </div>
                 <div class="form-group">
                     <label for="trainName">Train Name:</label>
                     <input type="train" class="form-control" id="trainName" placeholder="">

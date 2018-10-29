@@ -1,6 +1,5 @@
 .jumbotron {
-    background-image: url(../images/arttrain.png);
-    background-image: cover, no-repeat;
+    background-color: lightblue;
     text-align: center;
     border-radius: 2%;
     color: rgb(7, 160, 58);
@@ -10,19 +9,15 @@
 }
 .table {
     margin-left: 10px;
-    background-color: tan;
+    background-color: lightblue;
 }
 .form-group {
     margin-left: 10px;
-    background-color: tan;
+    background-color: lightblue;
 }
 body {
-    background-color: beige;
+    background-image: url(../images/steamtrain.jpg);
+    background-image: cover;
+    background-image: no-repeat;
     padding-bottom: 100px;
-}
-h5 {
-    background-color: blue;
-    margin-left: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
 }
