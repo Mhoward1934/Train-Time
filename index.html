@@ -19,42 +19,35 @@
 
 <body>
     <div class="containter">
-    <div class="jumbotron">
-        <h1>Train Schedule</h1>
-    </div>
-    <br>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Current Train Schedule</th>
-                </tr>
-            </thead>
-            <thead>
-                <tr>
-                    <th scope="col">Train Name</th>
-                    <th scope="col">Destination</th>
-                    <th scope="col">Frequency (min)</th>
-                    <th scope="col">Next Arrival</th>
-                    <th scope="col">Minutes Away</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr 
-            </tbody> 
-        </table>
+        <div class="jumbotron">
+            <h1>Train Schedule</h1>
+        </div>
+        <br>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Current Train Schedule</th>
+                    </tr>
+                </thead>
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody> 
+            </table>
         <br> 
         <form>
                 <div class="form-group">
@@ -79,6 +72,8 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    <script type="text/javascript" src="Assets/javascript/train.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
 </body>
 
 </html>
