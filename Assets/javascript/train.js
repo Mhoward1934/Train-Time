@@ -1,28 +1,44 @@
+$(document).ready()
+
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyCKFJf-XFDfl2h8e-S3MGXQXDcekkPMvG8",
-    authDomain: "train-time-b3044.firebaseapp.com",
-    databaseURL: "https://train-time-b3044.firebaseio.com",
-    projectId: "train-time-b3044",
-    storageBucket: "",
-    messagingSenderId: "918132511166"
-  };
-  firebase.initializeApp(config);
+  apiKey: "AIzaSyCKFJf-XFDfl2h8e-S3MGXQXDcekkPMvG8",
+  authDomain: "train-time-b3044.firebaseapp.com",
+  databaseURL: "https://train-time-b3044.firebaseio.com",
+  projectId: "train-time-b3044",
+  storageBucket: "train-time-b3044.appspot.com",
+  messagingSenderId: "918132511166"
+};
+firebase.initializeApp(config);
 
 var database = firebase.database();
+//console.log(database);
+// function currentTrain() {
+//   var trainName = ["HTown", "Capital Express", "Ocean Beacon"];
+//   var destination = ["Houston", "Austin", "Galveston"];
+//   var firstTime = ["08:00", "13:00", "15:00"];
+//   var frequency = ["90", "60", "120"];
+//   //console.log(currentName);
+// }
 
-var trainName = [];
-var destination = [];
-var firstTime = [];
-var frequency = [];
+$("button").on("click", function (event) {
+  event.preventDefault();
 
-//Initial array of trains scheduled that can be added to
-var currentTrain = {
-    train name = ["Htown", "Capital Express", "Ocean Beacon"],
-    Destination = ["Houston", "Austin", "Galveston"],
-    Frequency = ["120", "60", "90"],
-    Next Arrival = [],
-    Minutes Away = []
-}
+  var name = $("#trainName").val().trim();
+  var destination = $("#destination").val().trim();
+  var firstTime = $("#firstTrainTime").val().trim();
+  var frequency = $("#frequency").val().trim();
+
+  database.ref().push({
+    name: name,
+    destination: destination,
+    firstTime: firstTime,
+    frequency: frequency
+  });
+})
+
+//$(document).on("click", currentTrain);
+
+
 
 
