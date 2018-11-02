@@ -50,33 +50,28 @@ database.ref().on("child_added", function (childSnapshot) {
     // Change the HTML to reflect
     $("#column1").text(snapshot.val().name);
     $("#column2").text(snapshot.val().destination);
-    $("#column3").text(snapshot.val().firstTime);
-    $("#column4").text(snapshot.val().frequency);
+    //$("#column4").text(snapshot.val().firstTime);
+    $("#column3").text(snapshot.val().frequency);
+    
 
     var firstTime = childSnapshot.val().firstTime;
-    var tFrequency = parseInt(childSnapshot.val().frequency);
-    var firstTrain = moment(firstTime, "HH:mm").subtract(1, "years");
-    console.log(firstTrain);
-    console.log(firstTime);
+    var tFrequency = childSnapshot.val().frequency;
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+    //console.log(firstTimeConverted);
     var currentTime = moment();
-    var currentTimeCalc = moment().subtract(1, "years");
-    var diffTime = moment().diff(moment(firstTrain), "minutes");
+    //console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    //console.log("DIFFERENCE IN TIME: " + diffTime);
     var tRemainder = diffTime % tFrequency;
-    var minutesRemaining = tFrequency - tRemainder;
-    var nextTRain = moment().add(minutesRemaining, "minutes").format("hh:mm A");
-    var beforeCalc = moment(firstTrain).diff(currentTimeCalc, "minutes");
-    var beforeMinutes = Math.ceil(moment.duration(beforeCalc).asMinutes());
-
-    if ((currentTimeCalc - firstTrain) < 0) {
-      nextTrain = childSnapshot.val().firstTime;
-      console.log("Before First Train");
-      minutesRemaining = beforeMinutes;
-    }
-    else {
-      nextTrain = moment().add(minutesRemaining, "minutes").format("hh:mm A");
-      minutesRemaining = tFrequency - tRemainder;
-      console.log("Working");
-    }
+    //console.log(tRemainder);
+    var tMinutesTillTrain = tFrequency - tRemainder;
+    $("#column5").text(tMinutesTillTrain);
+    //console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    $("#column4").text(nextTrain);
+    //console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    
+    
   });
 
   // Handle the errors
