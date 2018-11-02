@@ -38,27 +38,52 @@ $("button").on("click", function (event) {
 })
 
 // Firebase watcher .on("child_added"
-database.ref().on("child_added", function (snapshot) {
-  // storing the snapshot.val() in a variable for convenience
-  var sv = snapshot.val();
+database.ref().on("child_added", function (childSnapshot) {
 
   // Console.loging added train schedule
-  console.log(sv.name);
-  console.log(sv.destination);
-  console.log(sv.firstTime);
-  console.log(sv.frequency);
+  console.log(childSnapshot.val().name);
+  console.log(childSnapshot.val().destination);
+  console.log(childSnapshot.val().firstTime);
+  console.log(childSnapshot.val().frequency);
 
-  // Change the HTML to reflect
-  $("#column1").text(sv.name);
-  $("#column2").text(sv.destination);
-  $("#column3").text(sv.firstTime);
-  $("#column4").text(sv.frequency);
+  database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
+    // Change the HTML to reflect
+    $("#column1").text(snapshot.val().name);
+    $("#column2").text(snapshot.val().destination);
+    $("#column3").text(snapshot.val().firstTime);
+    $("#column4").text(snapshot.val().frequency);
+
+    var firstTime = childSnapshot.val().firstTime;
+    var tFrequency = parseInt(childSnapshot.val().frequency);
+    var firstTrain = moment(firstTime, "HH:mm").subtract(1, "years");
+    console.log(firstTrain);
+    console.log(firstTime);
+    var currentTime = moment();
+    var currentTimeCalc = moment().subtract(1, "years");
+    var diffTime = moment().diff(moment(firstTrain), "minutes");
+    var tRemainder = diffTime % tFrequency;
+    var minutesRemaining = tFrequency - tRemainder;
+    var nextTRain = moment().add(minutesRemaining, "minutes").format("hh:mm A");
+    var beforeCalc = moment(firstTrain).diff(currentTimeCalc, "minutes");
+    var beforeMinutes = Math.ceil(moment.duration(beforeCalc).asMinutes());
+
+    if ((currentTimeCalc - firstTrain) < 0) {
+      nextTrain = childSnapshot.val().firstTime;
+      console.log("Before First Train");
+      minutesRemaining = beforeMinutes;
+    }
+    else {
+      nextTrain = moment().add(minutesRemaining, "minutes").format("hh:mm A");
+      minutesRemaining = tFrequency - tRemainder;
+      console.log("Working");
+    }
+  });
 
   // Handle the errors
 }, function (errorObject) {
   console.log("Errors handled: " + errorObject.code);
 });
-//$(document).on("click", currentTrain);
+
 
 
 
