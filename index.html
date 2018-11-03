@@ -28,54 +28,62 @@
                     </div>
                   </div>
         <br>
-            <table class="table table-bordered">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">Current Train Schedule</th>
-                    </tr>
-                </thead>
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">Train Name</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Frequency (min)</th>
-                        <th scope="col">Next Arrival</th>
-                        <th scope="col">Minutes Away</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="column1"></td>
-                        <td id="column2"></td>
-                        <td id="column3"></td>
-                        <td id="column4"></td>
-                        <td id="column5"></td>
-                    </tr>
-                </tbody> 
-            </table>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Current Train Schedule</th>
+                        </tr>
+                    </thead>
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="column1"></td>
+                            <td id="column2"></td>
+                            <td id="column3"></td>
+                            <td id="column4"></td>
+                            <td id="column5"></td>
+                        </tr>
+                    </tbody> 
+                </table>
+            </div>
+        </div>
         <br> 
-        <form>
-                <div class="form-group">
-                    <label for="addTrain"><strong>Add Train</strong></label>
-                </div>
-                <div class="form-group">
-                    <label for="trainName">Train Name:</label>
-                    <input type="train" class="form-control" id="trainName" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="destination">Destination:</label>
-                    <input type="destination" class="form-control" id="destination" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="firstTrainTime">First Train Time (HH:mm - military time):</label>
-                    <input type="firstTrainTime" class="form-control" id="firstTrainTime" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="frequency">Frequency (min):</label>
-                    <input type="frequency" class="form-control" id="frequency" placeholder="">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                        <div class="form-group">
+                            <label for="addTrain"><strong>Add Train</strong></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="trainName">Train Name:</label>
+                            <input type="train" class="form-control" id="trainName" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="destination">Destination:</label>
+                            <input type="destination" class="form-control" id="destination" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="firstTrainTime">First Train Time (HH:mm - military time):</label>
+                            <input type="firstTrainTime" class="form-control" id="firstTrainTime" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="frequency">Frequency (min):</label>
+                            <input type="frequency" class="form-control" id="frequency" placeholder="">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="Assets/javascript/train.js"></script>
 </body>

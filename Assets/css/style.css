@@ -20,13 +20,20 @@
     margin: 0 auto;
 }
 .table {
-    width: 100%;
-    margin: 20px;
+    width: 90%;
+    margin-left: 70px;
 }
 
 .form-group {
-    width: 100%;
-    margin: 20px;
+    width: 90%;
+    margin-left: 70px;
     background-color: lightgray;
 }
 
+button {
+    margin-left: 70px;
+}
+
+body {
+    background-color: tan;
+}
