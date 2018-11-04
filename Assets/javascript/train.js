@@ -90,7 +90,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
   //$("#column4").text(nextTrain);
   // //console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
   
-  // Change the HTML to reflect ===>CAN ONLY GET NEXT ARRIVAL AND MINUTES AWAY TO WORK FOR THE FIRST TRAIN<===
+  // Change the HTML to reflect
   $("#column1").append("<tr>, <td>" + childSnapshot.val().name);
   $("#column2").append("<tr>, <td>" + childSnapshot.val().destination);
   $("#column3").append("<tr>, <td>" + childSnapshot.val().frequency);
